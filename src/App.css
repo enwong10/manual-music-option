@@ -1,0 +1,65 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.popup {
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  height: 60px;
+  width: 125px;
+  border-radius: 10px;
+}
+
+.select-button {
+  border: black solid;
+  border-radius: 10px;
+  padding: 10px; 
+  margin: 0px 5px;
+}
+
+.select-button-pitch {
+  border: black solid;
+  border-radius: 10px;
+  padding: 2.5px; 
+  margin: 0px 5px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+position: fixed;
+top: 50%; 
+left: 50%; 
+transform: translate(-50%, -50%);
+border: black solid;
+}
+
+/* Add styles to the form container */
+.form-container {
+  height: 500px;
+  width: 500px;
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden { 
+  display: none; 
+}
+
