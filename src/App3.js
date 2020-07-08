@@ -197,7 +197,7 @@ class App3 extends Component {
             <div style={{ flex: "1", overflowY: "auto", width: "inherit", alignSelf: "center" }}>
               <div id="staff" ></div>
             </div>
-            <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", maxHeight: "225px", overflow: "auto" }}>
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", maxHeight: "225px", overflow: "auto", margin: "0px 5px" }}>
               <div style={{ textAlign: "left" }}>
                 <label>1. Pitch or Rest</label>
                 <div className="group-div">
@@ -257,7 +257,7 @@ class App3 extends Component {
               </div>
 
             </div>
-            <div style={{ margin: "10px 5px", marginBottom: "0", display: "flex", flexDirection: "column" }}>
+            <div style={{ margin: "10px", marginBottom: "0", display: "flex", flexDirection: "column" }}>
               <label style={{ marginLeft: "0"}}>ABC Notation:</label>
               <textarea style={{ minHeight: "75px" }} value={this.state.ABCvalue['']} onChange={this.updateStaff}></textarea>
             </div>
