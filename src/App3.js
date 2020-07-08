@@ -9,11 +9,11 @@ import QuarterNote from './images/QuarterNote.png';
 import DEighthNote from './images/DEighthNote.png';
 import EighthNote from './images/EighthNote.png';
 import SixteenthNote from './images/SixteenthNote.png';
-import WholeRest from './images/WholeRest.png';
-import HalfRest from './images/HalfRest.png';
-import QuarterRest from './images/QuarterRest.png';
-import EighthRest from './images/EighthRest.png';
-import SixteenthRest from './images/SixteenthRest.png';
+// import WholeRest from './images/WholeRest.png';
+// import HalfRest from './images/HalfRest.png';
+// import QuarterRest from './images/QuarterRest.png';
+// import EighthRest from './images/EighthRest.png';
+// import SixteenthRest from './images/SixteenthRest.png';
 import Sharp from './images/Sharp.png';
 import Natural from './images/Natural.png';
 import Flat from './images/Flat.png';
@@ -34,6 +34,7 @@ import G4 from './images/G4.png';
 import A5 from './images/A5.png';
 import B5 from './images/B5.png';
 import C5 from './images/C5.png';
+import white from './images/white.png';
 
 
 class App3 extends Component {
@@ -49,7 +50,6 @@ class App3 extends Component {
         'Q': "60",
         'R': "",
         'L': "1/4",
-        'I': "linebreak !",
         '': "||"
       },
       staff: null,
@@ -82,7 +82,7 @@ class App3 extends Component {
   registerAccidental(event) {
     console.log(event.target.id);
     if (this.state.selectedPitch !== null) {
-      this.setState({ selectedPitch: event.target.id + this.state.selectedPitch});
+      this.setState({ selectedPitch: event.target.id + this.state.selectedPitch });
     }
     else {
       console.log('Please select pitch');
@@ -93,7 +93,7 @@ class App3 extends Component {
     console.log(event.target.id);
     if (this.state.selectedPitch !== null) {
       this.addABCVal(this.state.selectedPitch + event.target.id);
-      this.setState({ selectedPitch: null});
+      this.setState({ selectedPitch: null });
     }
     else {
       console.log('Please select pitch');
@@ -193,13 +193,14 @@ class App3 extends Component {
       <div className="App" >
         <header className="App-header">
           <div className="popup">
-            <h2 style={{ color: "black", textAlign: "left", marginLeft: "1em" }}>Manual:</h2>
-            <div style={{ flex: "1", overflowY: "auto", width: "1125px", alignSelf: "center" }}>
+            <h2 style={{ color: "black", textAlign: "left", marginLeft: "1em", marginBottom: "0" }}>Manual:</h2>
+            <div style={{ flex: "1", overflowY: "auto", width: "inherit", alignSelf: "center" }}>
               <div id="staff" ></div>
             </div>
-            <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-              <div style={{ margin: "15px" }}>
-                <div>
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", maxHeight: "225px", overflow: "auto" }}>
+              <div style={{ textAlign: "left" }}>
+                <label>1. Pitch or Rest</label>
+                <div className="group-div">
                   <img id="C" className="select-button-pitch" onClick={this.registerPitch} src={C3} height={'40px'} width={'40px'} alt="C" />
                   <img id="D" className="select-button-pitch" onClick={this.registerPitch} src={D3} height={'40px'} width={'40px'} alt="D" />
                   <img id="E" className="select-button-pitch" onClick={this.registerPitch} src={E3} height={'40px'} width={'40px'} alt="E" />
@@ -215,16 +216,27 @@ class App3 extends Component {
                   <img id="a" className="select-button-pitch" onClick={this.registerPitch} src={A5} height={'40px'} width={'40px'} alt="A" />
                   <img id="b" className="select-button-pitch" onClick={this.registerPitch} src={B5} height={'40px'} width={'40px'} alt="B" />
                   <img id="c'" className="select-button-pitch" onClick={this.registerPitch} src={C5} height={'40px'} width={'40px'} alt="C" />
+                  <img id="z" className="select-button-pitch" onClick={this.registerPitch} src={white} height={'40px'} width={'40px'} alt="" />
+                </div>
+                {/* <div>
+                  <img id="z4" className="select-button" onClick={this.registerOther} src={WholeRest} height={'25px'} width={'25px'} alt="WholeRest" />
+                  <img id="z2" className="select-button" onClick={this.registerOther} src={HalfRest} height={'25px'} width={'25px'} alt="HalfRest" />
+                  <img id="z1" className="select-button" onClick={this.registerOther} src={QuarterRest} height={'25px'} width={'25px'} alt="QuarterRest" />
+                  <img id="z1/2" className="select-button" onClick={this.registerOther} src={EighthRest} height={'25px'} width={'25px'} alt="EighthRest" />
+                  <img id="z1/4" className="select-button" onClick={this.registerOther} src={SixteenthRest} height={'25px'} width={'25px'} alt="SixteenthRest" />
+                </div> */}
+              </div>
+              <div style={{ textAlign: "left" }}>
+                <label>2. Accidentals</label>
+                <div className="group-div-optional">
+                  <img id="^" className="select-button" onClick={this.registerAccidental} src={Sharp} height={'25px'} width={'25px'} alt="Sharp" />
+                  <img id="=" className="select-button" onClick={this.registerAccidental} src={Natural} height={'25px'} width={'25px'} alt="Natural" />
+                  <img id="_" className="select-button" onClick={this.registerAccidental} src={Flat} height={'25px'} width={'25px'} alt="Flat" />
                 </div>
               </div>
-              <div style={{ margin: "15px" }}>
-                <img id="^" className="select-button" onClick={this.registerAccidental} src={Sharp} height={'25px'} width={'25px'} alt="Sharp" />
-                <img id="=" className="select-button" onClick={this.registerAccidental} src={Natural} height={'25px'} width={'25px'} alt="Natural" />
-                <img id="_" className="select-button" onClick={this.registerAccidental} src={Flat} height={'25px'} width={'25px'} alt="Flat" />
-
-              </div>
-              <div style={{ margin: "15px" }}>
-                <div>
+              <div style={{ textAlign: "left" }}>
+                <label>3. Note Length</label>
+                <div className="group-div">
                   <img id="4" className="select-button" onClick={this.registerLength} src={WholeNote} height={'25px'} width={'25px'} alt="WholeNote" />
                   <img id="3" className="select-button" onClick={this.registerLength} src={DHalfNote} height={'25px'} width={'25px'} alt="DHalfNote" />
                   <img id="2" className="select-button" onClick={this.registerLength} src={HalfNote} height={'25px'} width={'25px'} alt="HalfNote" />
@@ -234,26 +246,24 @@ class App3 extends Component {
                   <img id="1/2" className="select-button" onClick={this.registerLength} src={EighthNote} height={'25px'} width={'25px'} alt="EighthNote" />
                   <img id="1/4" className="select-button" onClick={this.registerLength} src={SixteenthNote} height={'25px'} width={'25px'} alt="SixteenthNote" />
                 </div>
-                <div>
-                  <img id="z4" className="select-button" onClick={this.registerOther} src={WholeRest} height={'25px'} width={'25px'} alt="WholeRest" />
-                  <img id="z2" className="select-button" onClick={this.registerOther} src={HalfRest} height={'25px'} width={'25px'} alt="HalfRest" />
-                  <img id="z1" className="select-button" onClick={this.registerOther} src={QuarterRest} height={'25px'} width={'25px'} alt="QuarterRest" />
-                  <img id="z1/2" className="select-button" onClick={this.registerOther} src={EighthRest} height={'25px'} width={'25px'} alt="EighthRest" />
-                  <img id="z1/4" className="select-button" onClick={this.registerOther} src={SixteenthRest} height={'25px'} width={'25px'} alt="SixteenthRest" />
-                </div>
               </div>
-              <div style={{ margin: "15px" }}>
-                <div>
+              <div style={{ textAlign: "left" }}>
+                <label>4. Other</label>
+                <div className="group-div-optional">
                   <img id="|" className="select-button" onClick={this.registerOther} src={BarLine} height={'25px'} width={'25px'} alt="BarLine" />
                   <img id="|]" className="select-button" onClick={this.registerOther} src={DBarLine} height={'25px'} width={'25px'} alt="DBarLine" />
-                  <button id="!" className="select-button" style={{height: "50px", width: "115px", backgroundColor: "white"}} onClick={this.registerOther}>LineBreak</button>
+                  <button id="&#10;" className="select-button" style={{ height: "50px", width: "115px", backgroundColor: "white" }} onClick={this.registerOther}>New Line</button>
                 </div>
               </div>
 
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", margin: "20px" }}>
+            <div style={{ margin: "10px 5px", marginBottom: "0", display: "flex", flexDirection: "column" }}>
+              <label style={{ marginLeft: "0"}}>ABC Notation:</label>
+              <textarea style={{ minHeight: "75px" }} value={this.state.ABCvalue['']} onChange={this.updateStaff}></textarea>
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between", margin: "10px" }}>
               <div>
-                <button onClick={this.startAudio} style={{ marginRight: "20px" }}>Play</button>
+                <button onClick={this.startAudio} style={{ marginRight: "10px" }}>Play</button>
                 <button onClick={this.stopAudio}>Stop</button>
                 <div className='audio-error' style={{ display: "none" }}>Audio is not supported in this browser.</div>
               </div>
@@ -290,11 +300,6 @@ class App3 extends Component {
                             <td><label style={{ fontSize: "large" }}><b>Rhythm: </b></label></td>
                             <td><input type="text" id="R" placeholder="Enter Rhythm" defaultValue={this.state.ABCvalue['R']} onChange={this.updateProp} required></input></td>
                           </tr>
-                          <tr>
-                            <td colSpan="2">
-                              <textarea style={{ height: "100px", width: "100%", margin: "10px 0px", alignSelf: "center" }} value={this.state.ABCvalue['']} onChange={this.updateStaff}></textarea>
-                            </td>
-                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -303,7 +308,7 @@ class App3 extends Component {
                     </div>
                   </form>
                 </div>
-                <button style={{ backgroundColor: "green", marginRight: "20px", marginLeft: "20px" }}>Save</button>
+                <button style={{ backgroundColor: "green", marginRight: "10px", marginLeft: "10px" }}>Save</button>
                 <button style={{ backgroundColor: "red" }}>Cancel</button>
               </div>
             </div>

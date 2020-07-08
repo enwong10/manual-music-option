@@ -12,6 +12,12 @@
   font-size: calc(10px + 2vmin);
 }
 
+label {
+  font-size: medium;
+  margin-left: 5px;
+  text-align: left;
+}
+
 .popup {
   background-color: white;
   height: 100vh;
@@ -24,6 +30,24 @@ button {
   height: 60px;
   width: 125px;
   border-radius: 10px;
+}
+
+.group-div {
+  padding: 15px;
+  border: solid 2px;
+  border-radius: 5px;
+  margin: 0px 5px;
+  text-align: center;
+}
+
+.group-div-optional {
+  padding: 15px;
+  border: dotted 2px;
+  border-radius: 5px;
+  margin: 0px 5px;
+  min-width: 125px;
+  min-height: 114px;
+  text-align: center;
 }
 
 .select-button {
