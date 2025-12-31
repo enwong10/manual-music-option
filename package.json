@@ -13,7 +13,7 @@
     "midi-writer-js": "^1.7.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "reactstrap": "^8.5.1",
     "svg-music-notation": "^0.1.1",
     "vexflow": "^3.0.9"
